@@ -1,10 +1,10 @@
 ---
-name: hulla-gittar
+name: gittar
 description: Download repository snapshots and copy selected directories with @hulla/gittar, choosing refs, cache isolation, and update policies. Use when building template or skill downloaders or fixing cache/output handling; not for Git clone workflows or unrelated downloaders.
 license: MIT
 metadata:
   author: hulladev
-  version: "0.2.0"
+  version: "0.3.0"
   package: "@hulla/gittar"
   reviewed-package-version: "0.0.4"
   reviewed-source: "5a3454d12d9df3fde89ef6b561cf47de1252f0da"

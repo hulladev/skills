@@ -6,13 +6,15 @@ Consumer skills for building applications with `@hulla/*`. Each skill teaches pa
 
 | Skill | Use it for | Compatibility |
 | --- | --- | --- |
-| [hulla-api](skills/hulla-api/SKILL.md) | Shared contracts, server implementations, typed clients, and host adapters. | `@hulla/api` 2.x; reviewed against 2.0.0. |
-| [hulla-ui](skills/hulla-ui/SKILL.md) | Installing and composing source components, shared themes, and native interactions. | Astro, React, Solid, and React Native registries; reviewed against the `@hulla/ui` 0.0.2-beta.1 workspace and `hulla` CLI 0.0.0-beta.2. |
-| [hulla-db](skills/hulla-db/SKILL.md) | Schemas, server transactions, restricted handlers, generated live clients, auth, and migrations. | Reviewed against `@hulla/db` 0.1.2; inspect matching framework bindings. |
-| [hulla-style](skills/hulla-style/SKILL.md) | Shared class pipelines, variant inference, custom merging, and native style composition. | Reviewed against `@hulla/style` 0.5.0 and `@hulla/style-native` 1.0.0. |
-| [hulla-control](skills/hulla-control/SKILL.md) | Explicit Result outcomes, exception conversion, transformations, and async payload handling. | Reviewed against `@hulla/control` 0.0.3. |
-| [hulla-args](skills/hulla-args/SKILL.md) | CLI argument shapes, argv boundaries, commands, casing, and supplied/omitted input validation. | Reviewed against `@hulla/args` 0.0.4. |
-| [hulla-gittar](skills/hulla-gittar/SKILL.md) | Snapshot downloads, subpath copying, source/ref isolation, and cache freshness. | Reviewed against `@hulla/gittar` 0.0.4; Bun-based implementation. |
+| [api](skills/api/SKILL.md) | Shared contracts, server implementations, typed clients, and host adapters. | `@hulla/api` 2.x; reviewed against 2.0.0. |
+| [ui](skills/ui/SKILL.md) | Installing and composing source components, shared themes, and native interactions. | Astro, React, Solid, and React Native registries; reviewed against the `@hulla/ui` 0.0.2-beta.1 workspace and `hulla` CLI 0.0.0-beta.2. |
+| [db](skills/db/SKILL.md) | Schemas, server transactions, restricted handlers, generated live clients, auth, and migrations. | Reviewed against `@hulla/db` 0.1.2; inspect matching framework bindings. |
+| [style](skills/style/SKILL.md) | Shared class pipelines, variant inference, custom merging, and native style composition. | Reviewed against `@hulla/style` 0.5.0 and `@hulla/style-native` 1.0.0. |
+| [control](skills/control/SKILL.md) | Explicit Result outcomes, exception conversion, transformations, and async payload handling. | Reviewed against `@hulla/control` 0.0.3. |
+| [args](skills/args/SKILL.md) | CLI argument shapes, argv boundaries, commands, casing, and supplied/omitted input validation. | Reviewed against `@hulla/args` 0.0.4. |
+| [gittar](skills/gittar/SKILL.md) | Snapshot downloads, subpath copying, source/ref isolation, and cache freshness. | Reviewed against `@hulla/gittar` 0.0.4; Bun-based implementation. |
+
+Skill IDs use the package's unscoped name, such as `api` for `@hulla/api`. The [Agent Skills naming rules](https://agentskills.io/specification#name-field) permit lowercase letters, numbers, and hyphens, so scoped npm names cannot be used as skill IDs.
 
 Compatibility records describe the guidance's target, not a guarantee for every future release. Each skill starts by inspecting the consumer's installed version or registry source. UI props and available components come from the installed source; matching names across frameworks do not imply identical APIs.
 
@@ -27,8 +29,8 @@ npx skills add hulladev/skills
 For Codex, install an individual skill into the current project:
 
 ```sh
-npx skills add hulladev/skills --skill hulla-api -a codex
-npx skills add hulladev/skills --skill hulla-ui -a codex
+npx skills add hulladev/skills --skill api -a codex
+npx skills add hulladev/skills --skill ui -a codex
 ```
 
 The external installer requires Node.js 22.20 or later. It also supports other agents, including Claude Code and Cursor; choose the appropriate agent in its interactive setup. These skills use the portable [Agent Skills format](https://agentskills.io/specification) and require no MCP server or executable helper.
@@ -36,16 +38,20 @@ The external installer requires Node.js 22.20 or later. It also supports other a
 Install only the skills your project uses. For example, add database and styling guidance for Codex:
 
 ```sh
-npx skills add hulladev/skills --skill hulla-db --skill hulla-style -a codex
+npx skills add hulladev/skills --skill db --skill style -a codex
 ```
 
 For a reproducible starting point, install from a tagged snapshot:
 
 ```sh
-npx skills add https://github.com/hulladev/skills/tree/v0.2.0/skills/hulla-db -a codex
+npx skills add https://github.com/hulladev/skills/tree/v0.3.0/skills/db -a codex
 ```
 
 Retain the selected skills and any installer lockfile in the consumer project. Review updates against your installed package versions before applying them; check your installer's behavior when updating a pinned source.
+
+### Updating an earlier installation
+
+Since `v0.3.0`, skill IDs and directories use the short names above. Older tagged snapshots retain names such as `hulla-api`. Install the renamed skill, then review and remove the previous entry with your installer so the project does not load both copies. Existing application dependencies are unaffected.
 
 ### Manual installation for Codex
 
@@ -54,8 +60,8 @@ Clone this small repository outside your application and check out a reviewed ta
 ```text
 your-app/
   .agents/skills/
-    hulla-api/SKILL.md
-    hulla-ui/
+    api/SKILL.md
+    ui/
       SKILL.md
       references/native.md
 ```
@@ -69,7 +75,7 @@ These are consumer instructions. Repository contributor guidance belongs in the 
 - Maintain each workflow here. Keep the detailed API reference and examples in the package documentation, and link to the relevant Markdown pages instead of copying entire manuals.
 - Record the target version and reviewed source revision in skill metadata. Check the installed declarations and component source before applying online documentation, which can describe a newer release.
 - Update affected skills when a package changes its public API, architecture, or consumer setup. Preserve guidance for incompatible package majors in tagged snapshots.
-- Tag skills releases independently from package releases. `v0.2.0` is a skills catalog release, not a package version. Individual skill metadata records the revision when that skill last changed.
+- Tag skills releases independently from package releases. `v0.3.0` is a skills catalog release, not a package version. Individual skill metadata records the revision when that skill last changed.
 - Validate frontmatter and relative references, then try relevant prompts in an isolated consumer project. Record what was actually exercised; format validation alone does not establish behavioral reliability.
 
 Useful evaluation prompts include adding a browser-callable API endpoint without importing server code into the browser, handling an expected not-found response, composing a settings form from installed UI components, and adapting a web composition to native components using their real props.

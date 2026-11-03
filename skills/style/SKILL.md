@@ -1,10 +1,10 @@
 ---
-name: hulla-style
+name: style
 description: Compose classes and typed variants with @hulla/style, configure serialization and merging, or use @hulla/style-native for native style objects. Use when integrating these helpers or fixing styling composition; not for generic visual design or other variant libraries.
 license: MIT
 metadata:
   author: hulladev
-  version: "0.2.0"
+  version: "0.3.0"
   package: "@hulla/style"
   reviewed-package-version: "0.5.0"
   reviewed-native-package: "@hulla/style-native 1.0.0"

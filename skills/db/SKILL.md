@@ -1,10 +1,10 @@
 ---
-name: hulla-db
+name: db
 description: Build applications with @hulla/db schemas, direct server access, generated queries/mutations, live clients, and framework bindings. Use when integrating the package or changing application database behavior; not for unrelated databases or developing the native engine.
 license: MIT
 metadata:
   author: hulladev
-  version: "0.2.0"
+  version: "0.3.0"
   package: "@hulla/db"
   reviewed-package-version: "0.1.2"
   reviewed-source: "596b4251661b3298e1a07a4a41010e0c29c04d18"

@@ -1,10 +1,10 @@
 ---
-name: hulla-args
+name: args
 description: Define and parse command-line input with @hulla/args, including flags, options, positional arguments, nested commands, and Zod validation. Use when integrating the parser or fixing its use in a CLI; not for unrelated argument parsers.
 license: MIT
 metadata:
   author: hulladev
-  version: "0.2.0"
+  version: "0.3.0"
   package: "@hulla/args"
   reviewed-package-version: "0.0.4"
   reviewed-source: "674f1f70428c12cbd527bb69a75c6ca8d164a024"

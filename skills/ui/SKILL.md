@@ -1,10 +1,10 @@
 ---
-name: hulla-ui
+name: ui
 description: Install and compose @hulla/ui source components in Astro, React, Solid, or React Native applications. Use when building screens with the registry, changing shared themes, or fixing component integration; not for unrelated UI work or authoring the registry generator.
 license: MIT
 metadata:
   author: hulladev
-  version: "0.1.0"
+  version: "0.3.0"
   package: "@hulla/ui"
   reviewed-generator-version: "0.0.2-beta.1"
   reviewed-cli-version: "0.0.0-beta.2"

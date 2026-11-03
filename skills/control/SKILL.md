@@ -1,10 +1,10 @@
 ---
-name: hulla-control
+name: control
 description: Model application outcomes with @hulla/control Result values, narrowing, transformations, and tcf exception boundaries. Use when integrating the package or fixing synchronous/asynchronous result handling; not for generic control flow or other Result libraries.
 license: MIT
 metadata:
   author: hulladev
-  version: "0.2.0"
+  version: "0.3.0"
   package: "@hulla/control"
   reviewed-package-version: "0.0.3"
   reviewed-source: "06ed2b405f5d203c91b825469843adca8542b1d6"

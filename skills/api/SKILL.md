@@ -1,10 +1,10 @@
 ---
-name: hulla-api
+name: api
 description: Build or change application APIs with @hulla/api 2.x, including shared contracts, server handlers, typed clients, transports, and framework adapters. Use when integrating the package or reviewing its use in an application; not for unrelated HTTP APIs or developing the package internals.
 license: MIT
 metadata:
   author: hulladev
-  version: "0.1.0"
+  version: "0.3.0"
   package: "@hulla/api"
   package-major: "2"
   reviewed-package-version: "2.0.0"
